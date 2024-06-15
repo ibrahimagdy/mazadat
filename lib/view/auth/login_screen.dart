@@ -1,9 +1,11 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mazadat/constants.dart';
 import 'package:mazadat/core/utils/theme.dart';
 import 'package:mazadat/core/widgets/custom_sign_in_button.dart';
 import 'package:mazadat/core/widgets/main_button.dart';
+import 'package:mazadat/view/auth/sign_up_screen.dart';
 
 import '../../core/widgets/custom_text_field.dart';
 
@@ -23,6 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var mediaQuery = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black),
@@ -38,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const SizedBox(height: 20),
+            SizedBox(height: mediaQuery.height * 0.02),
             TextFormFieldCustom(
               context: context,
               controller: emailController,
@@ -48,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 fit: BoxFit.scaleDown,
               ),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: mediaQuery.height * 0.02),
             TextFormFieldCustom(
               context: context,
               controller: passwordController,
@@ -83,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ],
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: mediaQuery.height * 0.02),
             MainButton(
               color: primaryColor,
               text: "Login",
@@ -93,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
               onTap: () {},
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: mediaQuery.height * 0.02),
             RichText(
               textAlign: TextAlign.center,
               text: TextSpan(
@@ -109,11 +112,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     style: theme().textTheme.bodyMedium!.copyWith(
                           color: primaryColor,
                         ),
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        Navigator.pushNamed(context, SignUpScreen.id);
+                      },
                   ),
                 ],
               ),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: mediaQuery.height * 0.02),
             const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -143,7 +150,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ],
             ),
-            const SizedBox(height: 30),
+            SizedBox(height: mediaQuery.height * 0.03),
             CustomSignInButton(
               icon: SvgPicture.asset("assets/images/Google.svg"),
               text: "Sign in with Google",
