@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'constants.dart';
+import '../constants/constants.dart';
 
 ThemeData theme() {
   return ThemeData(
@@ -16,6 +16,7 @@ ThemeData theme() {
       displayLarge: GoogleFonts.inter(
         fontSize: 34,
         fontWeight: FontWeight.normal,
+        color: Colors.white,
         letterSpacing: 0,
         height: 1.21, // Leading point of 41px (41/34)
       ),
@@ -23,6 +24,7 @@ ThemeData theme() {
       displayMedium: GoogleFonts.inter(
         fontSize: 28,
         fontWeight: FontWeight.normal,
+        color: Colors.white,
         letterSpacing: 0,
         height: 1.21, // Leading point of 34px (34/28)
       ),
@@ -30,6 +32,7 @@ ThemeData theme() {
       displaySmall: GoogleFonts.inter(
         fontSize: 24,
         fontWeight: FontWeight.normal,
+        color: Colors.white,
         letterSpacing: 0,
         height: 1.25, // Leading point of 30px (30/24)
       ),
@@ -37,6 +40,7 @@ ThemeData theme() {
       headlineMedium: GoogleFonts.inter(
         fontSize: 22,
         fontWeight: FontWeight.normal,
+        color: Colors.white,
         letterSpacing: 0,
         height: 1.36, // Leading point of 30px (30/22)
       ),
@@ -44,6 +48,7 @@ ThemeData theme() {
       headlineSmall: GoogleFonts.inter(
         fontSize: 20,
         fontWeight: FontWeight.normal,
+        color: Colors.white,
         letterSpacing: 0,
         height: 1.3, // Leading point of 26px (26/20)
       ),
@@ -51,6 +56,7 @@ ThemeData theme() {
       titleLarge: GoogleFonts.inter(
         fontSize: 18,
         fontWeight: FontWeight.normal,
+        color: Colors.white,
         letterSpacing: 0,
         height: 1.33, // Leading point of 24px (24/18)
       ),
@@ -58,6 +64,7 @@ ThemeData theme() {
       titleMedium: GoogleFonts.tajawal(
         fontSize: 16,
         fontWeight: FontWeight.normal,
+        color: Colors.white,
         letterSpacing: 0,
         //height: 1.25, // Leading point of 20px (20/16)
       ),
@@ -65,6 +72,7 @@ ThemeData theme() {
       titleSmall: GoogleFonts.inter(
         fontSize: 14,
         fontWeight: FontWeight.normal,
+        color: Colors.white,
         letterSpacing: 0,
         height: 1.29, // Leading point of 18px (18/14)
       ),
@@ -72,6 +80,7 @@ ThemeData theme() {
       bodyLarge: GoogleFonts.inter(
         fontSize: 16,
         fontWeight: FontWeight.bold,
+        color: Colors.white,
         letterSpacing: 0,
         height: 1.5, // Leading point of 24px (24/16)
       ),
@@ -79,6 +88,7 @@ ThemeData theme() {
       bodyMedium: GoogleFonts.inter(
         fontSize: 14,
         fontWeight: FontWeight.normal,
+        color: Colors.white,
         letterSpacing: 0,
         height: 1.57, // Leading point of 22px (22/14)
       ),
@@ -86,6 +96,7 @@ ThemeData theme() {
       labelLarge: GoogleFonts.inter(
         fontSize: 12,
         fontWeight: FontWeight.normal,
+        color: Colors.white,
         letterSpacing: 0,
         height: 1.5, // Leading point of 18px (18/12)
       ),
@@ -93,6 +104,7 @@ ThemeData theme() {
       bodySmall: GoogleFonts.inter(
         fontSize: 16,
         fontWeight: FontWeight.normal,
+        color: Colors.white,
         letterSpacing: 0,
         height: 1.5, // Leading point of 24px (24/16)
       ),
@@ -100,6 +112,7 @@ ThemeData theme() {
       labelMedium: GoogleFonts.inter(
         fontSize: 14,
         fontWeight: FontWeight.normal,
+        color: Colors.white,
         letterSpacing: 0,
         height: 1.29, // Leading point of 18px (18/14)
       ),
@@ -107,9 +120,24 @@ ThemeData theme() {
       labelSmall: GoogleFonts.inter(
         fontSize: 12,
         fontWeight: FontWeight.normal,
+        color: Colors.white,
         letterSpacing: 0,
         height: 1.33, // Leading point of 16px (16/12)
       ),
+    ),
+    appBarTheme: AppBarTheme(
+      centerTitle: true,
+      backgroundColor: primaryColor,
+      titleTextStyle: TextStyle(
+        fontSize: 24,
+        color: whiteBackGround
+      ),
+      iconTheme: IconThemeData(
+        color: whiteBackGround
+      ),
+    ),
+    iconTheme: IconThemeData(
+      color: whiteBackGround
     ),
   );
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mazadat/constants/theme.dart';
+import 'package:mazadat/core/theme.dart';
+import 'package:mazadat/view/home_before_login/home_before_login.dart';
 
 class SkipScreen extends StatelessWidget {
   static String id = "SkipScreen";
@@ -22,20 +23,15 @@ class SkipScreen extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 30),
               child: GestureDetector(
                 onTap: (){
-
+                  Navigator.pushReplacementNamed(context, HomeBeforeLogin.id);
                 },
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Icon(
-                      Icons.keyboard_arrow_up,
-                      color: Colors.white,
-                    ),
+                    const Icon(Icons.keyboard_arrow_up),
                     Text(
                       "تخطي",
-                      style: theme().textTheme.titleMedium!.copyWith(
-                        color: Colors.white
-                      ),
+                      style: theme().textTheme.titleMedium,
                     ),
                   ],
                 ),
