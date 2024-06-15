@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../constants.dart';
 import '../utils/theme.dart';
 
@@ -61,6 +62,7 @@ class HomeCategories extends StatelessWidget{
                             const SizedBox(height: 4.0),
                             Text(
                                 homeModels[index].subtitle ?? "",
+                                textDirection: TextDirection.rtl,
                                 style: theme().textTheme.titleMedium!.copyWith(
                                     color: primaryColor
                                 )
