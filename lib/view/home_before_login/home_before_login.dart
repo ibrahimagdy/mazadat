@@ -3,6 +3,7 @@ import 'package:mazadat/core/utils/theme.dart';
 import 'package:mazadat/core/widgets/home_list_tile.dart';
 import 'package:mazadat/core/widgets/main_button.dart';
 import 'package:mazadat/view/auth/login_screen.dart';
+import 'package:mazadat/view/auth/sign_up_screen.dart';
 
 import '../../constants.dart';
 import '../../core/widgets/home_categories.dart';
@@ -53,7 +54,7 @@ class HomeBeforeLogin extends StatelessWidget {
                     textColor: Colors.black,
                     icon: "assets/images/subscribe.svg",
                     onTap: () {
-                      Navigator.pushNamed(context, LoginScreen.id);
+                      Navigator.pushNamed(context, SignUpScreen.id);
                     }),
               ],
             ),
