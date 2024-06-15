@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../constants/constants.dart';
+import '../../constants.dart';
 
 ThemeData theme() {
   return ThemeData(
@@ -56,9 +56,9 @@ ThemeData theme() {
       titleLarge: GoogleFonts.inter(
         fontSize: 18,
         fontWeight: FontWeight.normal,
-        color: Colors.white,
+        color: Colors.black,
         letterSpacing: 0,
-        height: 1.33, // Leading point of 24px (24/18)
+        //height: 1.33, // Leading point of 24px (24/18)
       ),
       // Subhead Large
       titleMedium: GoogleFonts.tajawal(
@@ -69,10 +69,9 @@ ThemeData theme() {
         //height: 1.25, // Leading point of 20px (20/16)
       ),
       // Subhead Small
-      titleSmall: GoogleFonts.inter(
+      titleSmall: GoogleFonts.tajawal(
         fontSize: 14,
-        fontWeight: FontWeight.normal,
-        color: Colors.white,
+        fontWeight: FontWeight.bold,
         letterSpacing: 0,
         height: 1.29, // Leading point of 18px (18/14)
       ),
