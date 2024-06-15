@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mazadat/view/skip_screen.dart';
+import 'package:mazadat/view/splash_screen/skip_screen.dart';
 
 class SplashScreen extends StatefulWidget{
   static String id = "SplashScreen";
