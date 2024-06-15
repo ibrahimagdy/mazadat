@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import '../../constants.dart';
 
 ThemeData theme() {
@@ -31,8 +32,8 @@ ThemeData theme() {
       // Title Medium
       displaySmall: GoogleFonts.inter(
         fontSize: 24,
-        fontWeight: FontWeight.normal,
-        color: Colors.white,
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
         letterSpacing: 0,
         height: 1.25, // Leading point of 30px (30/24)
       ),
@@ -138,5 +139,6 @@ ThemeData theme() {
     iconTheme: IconThemeData(
       color: whiteBackGround
     ),
+    scaffoldBackgroundColor: Colors.white,
   );
 }
