@@ -6,6 +6,6 @@ import 'package:mazadat/view/splash_screen/splash_screen.dart';
 Map<String, Widget Function(BuildContext)> routes = {
   SplashScreen.id : (context) => const SplashScreen(),
   SkipScreen.id: (context) => const SkipScreen(),
-  HomeBeforeLogin.id: (context) => const HomeBeforeLogin(),
+  HomeBeforeLogin.id: (context) =>  HomeBeforeLogin(),
 
 };

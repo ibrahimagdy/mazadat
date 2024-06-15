@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mazadat/core/theme.dart';
+import 'package:mazadat/core/utils/theme.dart';
 import 'package:mazadat/view/home_before_login/home_before_login.dart';
 
 class SkipScreen extends StatelessWidget {
