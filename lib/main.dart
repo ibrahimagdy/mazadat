@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mazadat/core/utils/routes.dart';
+import 'package:mazadat/routes.dart';
 import 'package:mazadat/core/utils/theme.dart';
 import 'package:mazadat/view/splash_screen/splash_screen.dart';
 

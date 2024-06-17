@@ -6,6 +6,7 @@ import 'package:mazadat/core/utils/theme.dart';
 import 'package:mazadat/core/widgets/custom_sign_in_button.dart';
 import 'package:mazadat/core/widgets/main_button.dart';
 import 'package:mazadat/view/auth/sign_up_screen.dart';
+import 'package:mazadat/view/home_layout/home_layout.dart';
 
 import '../../core/functions/show_dialog.dart';
 import '../../core/widgets/custom_text_field.dart';
@@ -101,7 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     "Yeay! Welcome Back",
                     "Once again you login successfully into medidoc app",
                     "Go to home", () {
-                  //Navigator.pushNamed(context, LoginScreen.id);
+                  Navigator.pushNamed(context, HomeLayout.id);
                 });
               },
             ),

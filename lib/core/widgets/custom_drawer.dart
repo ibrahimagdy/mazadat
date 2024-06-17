@@ -71,114 +71,117 @@ class CustomDrawer extends StatelessWidget {
         title: "للتواصل",
       ),
     ];
-    return Drawer(
-      backgroundColor: whiteBackGround,
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(height: 50),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: ListTile(
-                leading: Image.asset("assets/images/drawer_profile.png"),
-                title: Text(
-                  "Donia Muhmd Muhmd",
-                  style: theme().textTheme.titleMedium!.copyWith(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Drawer(
+        backgroundColor: whiteBackGround,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(height: 50),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: ListTile(
+                  leading: Image.asset("assets/images/drawer_profile.png"),
+                  title: Text(
+                    "Donia Muhmd Muhmd",
+                    style: theme().textTheme.titleMedium!.copyWith(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
+                  ),
+                  subtitle: Row(
+                    children: [
+                      Text(
+                        "عرض الملف الشخصي",
+                        style: theme().textTheme.labelSmall,
                       ),
+                      const SizedBox(width: 3),
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        size: 16,
+                        color: primaryColor,
+                      )
+                    ],
+                  ),
                 ),
-                subtitle: Row(
+              ),
+              const SizedBox(height: 12),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: Container(
+                  decoration: BoxDecoration(
+                    image: const DecorationImage(
+                      image: AssetImage('assets/images/drawer_background.png'),
+                      fit: BoxFit.cover,
+                    ),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: ListTile(
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 22),
+                    title: Text(
+                      'قم بالإيداع الآن',
+                      style: theme().textTheme.bodyLarge,
+                    ),
+                    subtitle: Text(
+                      'ابدأ رحلة المزايدة الخاصة بك!',
+                      style: theme().textTheme.bodyLarge!.copyWith(
+                            fontSize: 13,
+                          ),
+                    ),
+                    trailing: Icon(
+                      Icons.arrow_forward_ios,
+                      size: 22,
+                      color: whiteBackGround,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: Column(
+                  children: drawerItems,
+                ),
+              ),
+              Container(
+                height: 90,
+                width: double.infinity,
+                color: const Color(0XFFFAF4E8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text(
-                      "عرض الملف الشخصي",
-                      style: theme().textTheme.labelSmall,
+                      "شاركنا رأيك",
+                      style: theme().textTheme.headlineSmall,
                     ),
-                    const SizedBox(width: 3),
-                    Icon(
-                      Icons.arrow_forward_ios,
-                      size: 16,
-                      color: primaryColor,
-                    )
+                    Container(
+                      height: 45,
+                      width: 130,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25),
+                        color: primaryColor,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SvgPicture.asset("assets/icons/star_icon.svg"),
+                          const SizedBox(width: 8),
+                          Text(
+                            "قيم التطبيق",
+                            style: theme().textTheme.titleLarge!.copyWith(
+                                color: whiteBackGround,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
-            ),
-            const SizedBox(height: 12),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: Container(
-                decoration: BoxDecoration(
-                  image: const DecorationImage(
-                    image: AssetImage('assets/images/drawer_background.png'),
-                    fit: BoxFit.cover,
-                  ),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: ListTile(
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 22),
-                  title: Text(
-                    'قم بالإيداع الآن',
-                    style: theme().textTheme.bodyLarge,
-                  ),
-                  subtitle: Text(
-                    'ابدأ رحلة المزايدة الخاصة بك!',
-                    style: theme().textTheme.bodyLarge!.copyWith(
-                          fontSize: 13,
-                        ),
-                  ),
-                  trailing: Icon(
-                    Icons.arrow_forward_ios,
-                    size: 22,
-                    color: whiteBackGround,
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: Column(
-                children: drawerItems,
-              ),
-            ),
-            Container(
-              height: 90,
-              width: double.infinity,
-              color: const Color(0XFFFAF4E8),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Text(
-                    "شاركنا رأيك",
-                    style: theme().textTheme.headlineSmall,
-                  ),
-                  Container(
-                    height: 45,
-                    width: 130,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(25),
-                      color: primaryColor,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SvgPicture.asset("assets/icons/star_icon.svg"),
-                        const SizedBox(width: 8),
-                        Text(
-                          "قيم التطبيق",
-                          style: theme().textTheme.titleLarge!.copyWith(
-                              color: whiteBackGround,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-                height: 50, width: double.infinity, color: whiteBackGround),
-          ],
+              Container(
+                  height: 50, width: double.infinity, color: whiteBackGround),
+            ],
+          ),
         ),
       ),
     );
