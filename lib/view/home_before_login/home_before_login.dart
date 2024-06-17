@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:mazadat/core/utils/theme.dart';
+import 'package:mazadat/core/widgets/custom_app_bar.dart';
 import 'package:mazadat/core/widgets/custom_drawer.dart';
 import 'package:mazadat/core/widgets/home_list_tile.dart';
 import 'package:mazadat/core/widgets/main_button.dart';
 import 'package:mazadat/view/auth/login_screen.dart';
 import 'package:mazadat/view/auth/sign_up_screen.dart';
-
 import '../../constants.dart';
-import '../../core/widgets/home_categories.dart';
+import '../home_layout/home_categories.dart';
 
 class HomeBeforeLogin extends StatelessWidget {
   static String id = "HomeBeforeLogin";
@@ -17,17 +17,8 @@ class HomeBeforeLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("الامارات للمزادات"),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 18),
-            child: Text("English", style: theme().textTheme.titleMedium),
-          )
-        ],
-      ),
-      drawer: const Directionality(
-          textDirection: TextDirection.rtl, child: CustomDrawer()),
+      appBar: const CustomAppBar(),
+      drawer: const CustomDrawer(),
       body: Column(
         children: [
           const HomeListTile(),

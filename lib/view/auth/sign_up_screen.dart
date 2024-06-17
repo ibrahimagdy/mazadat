@@ -60,7 +60,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               controller: emailController,
               hintText: "Enter your email",
               prefixIcon: SvgPicture.asset(
-                "assets/images/email.svg",
+                "assets/icons/email.svg",
                 fit: BoxFit.scaleDown,
               ),
             ),
@@ -81,7 +81,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 },
               ),
               prefixIcon: SvgPicture.asset(
-                "assets/images/password.svg",
+                "assets/icons/password.svg",
                 fit: BoxFit.scaleDown,
               ),
             ),
