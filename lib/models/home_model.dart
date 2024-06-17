@@ -1,10 +1,8 @@
-import 'package:flutter/cupertino.dart';
-
 class HomeModel {
   final String imagePath;
   final String title;
   final String? subtitle;
-  final Widget screen;
+  final String screen;
 
   HomeModel({
     required this.imagePath,
@@ -12,5 +10,4 @@ class HomeModel {
     this.subtitle,
     required this.screen,
   });
-
 }
