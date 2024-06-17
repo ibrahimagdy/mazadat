@@ -7,6 +7,7 @@ import 'package:mazadat/core/widgets/custom_sign_in_button.dart';
 import 'package:mazadat/core/widgets/main_button.dart';
 import 'package:mazadat/view/auth/sign_up_screen.dart';
 
+import '../../core/functions/show_dialog.dart';
 import '../../core/widgets/custom_text_field.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -30,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black),
         centerTitle: true,
-        backgroundColor: Colors.white,
+        backgroundColor: whiteBackGround,
         title: Text(
           "Login",
           style: theme().textTheme.displaySmall,
@@ -47,7 +48,7 @@ class _LoginScreenState extends State<LoginScreen> {
               controller: emailController,
               hintText: "Enter your email",
               prefixIcon: SvgPicture.asset(
-                "assets/images/email.svg",
+                "assets/icons/email.svg",
                 fit: BoxFit.scaleDown,
               ),
             ),
@@ -68,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 },
               ),
               prefixIcon: SvgPicture.asset(
-                "assets/images/password.svg",
+                "assets/icons/password.svg",
                 fit: BoxFit.scaleDown,
               ),
             ),
@@ -94,7 +95,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   .textTheme
                   .titleLarge!
                   .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
-              onTap: () {},
+              onTap: () {
+                showConfirmationDialog(
+                    context,
+                    "Yeay! Welcome Back",
+                    "Once again you login successfully into medidoc app",
+                    "Go to home", () {
+                  //Navigator.pushNamed(context, LoginScreen.id);
+                });
+              },
             ),
             SizedBox(height: mediaQuery.height * 0.02),
             RichText(
@@ -152,7 +161,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             SizedBox(height: mediaQuery.height * 0.03),
             CustomSignInButton(
-              icon: SvgPicture.asset("assets/images/Google.svg"),
+              icon: SvgPicture.asset("assets/icons/Google.svg"),
               text: "Sign in with Google",
             ),
             const SizedBox(height: 14),
