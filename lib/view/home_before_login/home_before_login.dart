@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mazadat/core/utils/theme.dart';
+import 'package:mazadat/core/widgets/custom_drawer.dart';
 import 'package:mazadat/core/widgets/home_list_tile.dart';
 import 'package:mazadat/core/widgets/main_button.dart';
 import 'package:mazadat/view/auth/login_screen.dart';
@@ -25,7 +26,8 @@ class HomeBeforeLogin extends StatelessWidget {
           )
         ],
       ),
-      drawer: const Drawer(),
+      drawer: const Directionality(
+          textDirection: TextDirection.rtl, child: CustomDrawer()),
       body: Column(
         children: [
           const HomeListTile(),
@@ -43,7 +45,7 @@ class HomeBeforeLogin extends StatelessWidget {
                         .textTheme
                         .titleSmall!
                         .copyWith(color: Colors.white),
-                    icon: "assets/images/login_vector.svg",
+                    icon: "assets/icons/login_vector.svg",
                     onTap: () {
                       Navigator.pushNamed(context, LoginScreen.id);
                     }),
@@ -52,7 +54,7 @@ class HomeBeforeLogin extends StatelessWidget {
                     text: "اشتراك",
                     textStyle: theme().textTheme.titleSmall,
                     textColor: Colors.black,
-                    icon: "assets/images/subscribe.svg",
+                    icon: "assets/icons/subscribe.svg",
                     onTap: () {
                       Navigator.pushNamed(context, SignUpScreen.id);
                     }),

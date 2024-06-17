@@ -48,8 +48,8 @@ ThemeData theme() {
       // Headline Large
       headlineSmall: GoogleFonts.inter(
         fontSize: 20,
-        fontWeight: FontWeight.normal,
-        color: Colors.white,
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
         letterSpacing: 0,
         height: 1.3, // Leading point of 26px (26/20)
       ),
@@ -117,12 +117,11 @@ ThemeData theme() {
         height: 1.29, // Leading point of 18px (18/14)
       ),
       // Label Small
-      labelSmall: GoogleFonts.inter(
+      labelSmall: GoogleFonts.tajawal(
         fontSize: 12,
         fontWeight: FontWeight.normal,
-        color: Colors.white,
+        color: primaryColor,
         letterSpacing: 0,
-        height: 1.33, // Leading point of 16px (16/12)
       ),
     ),
     appBarTheme: AppBarTheme(

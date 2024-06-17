@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:mazadat/view/auth/login_screen.dart';
 
 import '../../constants.dart';
+import '../../core/functions/show_dialog.dart';
 import '../../core/utils/theme.dart';
 import '../../core/widgets/custom_check_box.dart';
 import '../../core/widgets/custom_text_field.dart';
@@ -49,7 +50,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               controller: nameController,
               hintText: "Enter your name",
               prefixIcon: SvgPicture.asset(
-                "assets/images/User-Outline.svg",
+                "assets/icons/User-Outline.svg",
                 fit: BoxFit.scaleDown,
               ),
             ),
@@ -120,30 +121,24 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               text: "and ",
                               style: TextStyle(color: Color(0XFF3B4453)),
                             ),
+                            TextSpan(
+                              style: Theme.of(context).textTheme.bodyMedium,
+                              children: [
+                                TextSpan(
+                                  onEnter: (event) {},
+                                  text: "Privacy Policy",
+                                  style: TextStyle(
+                                    color: primaryColor,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
                     ),
                   ],
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: mediaQuery.width * 0.06),
-                  // Adjust this padding as needed
-                  child: RichText(
-                    text: TextSpan(
-                      style: Theme.of(context).textTheme.bodyMedium,
-                      children: [
-                        TextSpan(
-                          onEnter: (event) {},
-                          text: "Privacy Policy",
-                          style: TextStyle(
-                            color: primaryColor,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
                 ),
               ],
             ),
@@ -155,7 +150,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   .textTheme
                   .titleLarge!
                   .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
-              onTap: () {},
+              onTap: () {
+                showConfirmationDialog(
+                    context,
+                    "Success",
+                    "Your account has been successfully registered",
+                    "Login", () {
+                  Navigator.pushNamed(context, LoginScreen.id);
+                });
+              },
             ),
             SizedBox(height: mediaQuery.height * 0.02),
             RichText(
