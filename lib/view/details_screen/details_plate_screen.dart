@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mazadat/constants.dart';
 import 'package:mazadat/core/utils/theme.dart';
+import 'package:mazadat/core/widgets/custom_search_bar.dart';
 import '../../core/widgets/drop_down_bar.dart';
 import '../../core/widgets/plate_header_list_tile.dart';
 import '../../core/widgets/plate_trailing_container.dart';
@@ -17,6 +18,7 @@ class DetailsPlateScreen extends StatefulWidget {
 
 class DetailsPlateScreenState extends State<DetailsPlateScreen> {
   bool isContainerVisible = false;
+  bool isSearchVisible = false;
 
   void toggleContainerVisibility() {
     setState(() {
@@ -24,10 +26,17 @@ class DetailsPlateScreenState extends State<DetailsPlateScreen> {
     });
   }
 
+  void toggleSearchVisibility() {
+    setState(() {
+      isSearchVisible = !isSearchVisible;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     var args = ModalRoute.of(context)?.settings.arguments as HomeModel;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text(args.title),
         actions: [
@@ -35,7 +44,10 @@ class DetailsPlateScreenState extends State<DetailsPlateScreen> {
             "assets/icons/filter_icon.svg",
           ),
           const SizedBox(width: 12),
-          const Icon(Icons.search, size: 24),
+          GestureDetector(
+            onTap: toggleSearchVisibility,
+            child: const Icon(Icons.search, size: 24),
+          ),
           const SizedBox(width: 12),
         ],
       ),
@@ -43,8 +55,17 @@ class DetailsPlateScreenState extends State<DetailsPlateScreen> {
         textDirection: TextDirection.rtl,
         child: Column(
           children: [
-            const DropDownBar(),
-            const PlateHeaderListTile(),
+            Container(
+              color: isSearchVisible ? const Color(0XFFBF7E9A) : whiteBackGround,
+              child: Column(
+                children: [
+                  const DropDownBar(),
+                  isSearchVisible
+                      ? const CustomSearchBar()
+                      : const PlateHeaderListTile(),
+                ],
+              ),
+            ),
             Visibility(
               visible: isContainerVisible,
               child: Container(
@@ -70,7 +91,6 @@ class DetailsPlateScreenState extends State<DetailsPlateScreen> {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-
                             ],
                           ),
                           Padding(
