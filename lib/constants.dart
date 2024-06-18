@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mazadat/view/sgarjah_screen/sgarjah_screen.dart';
 
-import 'models/home_model.dart';
 
 Color primaryColor = const Color(0xFFDF1731);
 Color secondaryColor = const Color(0xFFF6F6F6);
