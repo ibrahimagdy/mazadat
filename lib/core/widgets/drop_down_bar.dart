@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../constants.dart';
+import '../../models/home_model.dart';
+import '../../view/details_screen/plate_grid_screen.dart';
 
 class DropDownBar extends StatefulWidget {
-  const DropDownBar({Key? key}) : super(key: key);
+  const DropDownBar({super.key});
 
   @override
   State<DropDownBar> createState() => _DropDownBarState();
@@ -23,6 +25,8 @@ class _DropDownBarState extends State<DropDownBar> {
 
   @override
   Widget build(BuildContext context) {
+    var args = ModalRoute.of(context)?.settings.arguments as HomeModel;
+
     return Container(
       height: 50,
       decoration: const BoxDecoration(
@@ -44,7 +48,7 @@ class _DropDownBarState extends State<DropDownBar> {
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Row(
-          textDirection: TextDirection.rtl, // Add this line to make the items appear from right to left
+          textDirection: TextDirection.rtl,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: List.generate(5, (index) {
@@ -56,8 +60,13 @@ class _DropDownBarState extends State<DropDownBar> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8),
-                    child: SvgPicture.asset(
-                      'assets/icons/details_icon.svg',
+                    child: GestureDetector(
+                      onTap: (){
+                        Navigator.pushNamed(context, PlateGridScreen.id, arguments: args);
+                      },
+                      child: SvgPicture.asset(
+                        'assets/icons/details_icon.svg',
+                      ),
                     ),
                   ),
                   const VerticalDivider(
