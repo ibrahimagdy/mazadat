@@ -3,26 +3,45 @@ import 'package:flutter_svg/svg.dart';
 import 'package:mazadat/constants.dart';
 import 'package:mazadat/core/widgets/custom_app_bar.dart';
 import 'package:mazadat/core/widgets/custom_drawer.dart';
-import 'home_categories.dart';
-import '../../core/widgets/home_list_tile.dart';
+import 'package:mazadat/view/home_layout/my_account_screen.dart';
+import 'package:mazadat/view/plate_details/shopping_cart/my_purchases.dart';
+import 'package:mazadat/view/various_categories_details/following_mazad/following_mazad.dart';
+import 'package:mazadat/view/various_categories_details/following_mazad/mazad_result.dart';
 
-class HomeLayout extends StatelessWidget{
+class HomeLayout extends StatefulWidget {
   static String id = "home";
 
   const HomeLayout({super.key});
+
+  @override
+  State<HomeLayout> createState() => HomeLayoutState();
+}
+
+class HomeLayoutState extends State<HomeLayout> {
+  int selectedIndex = 0;
+
+  final List<Widget> _screens = [
+    const MyAccountScreen(),
+    const MyPurchases(),
+    const MazadResult(),
+    const FollowingMazad(),
+  ];
+
+  void onItemTapped(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(),
       drawer: const CustomDrawer(),
-      body: const Column(
-        children: [
-          HomeListTile(),
-          HomeCategories(),
-        ],
-      ),
+      body: _screens[selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: selectedIndex,
+        onTap: onItemTapped,
         selectedItemColor: Colors.black,
         type: BottomNavigationBarType.fixed,
         backgroundColor: whiteBackGround,
@@ -47,5 +66,4 @@ class HomeLayout extends StatelessWidget{
       ),
     );
   }
-
 }
