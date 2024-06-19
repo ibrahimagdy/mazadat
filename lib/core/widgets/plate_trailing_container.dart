@@ -1,12 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:mazadat/view/shopping_cart/my_purchases.dart';
-import 'package:mazadat/view/shopping_cart/shopping_cart.dart';
-import '../../constants.dart';
+
 import '../utils/theme.dart';
 
 class PlateTrailingContainer extends StatelessWidget {
-  const PlateTrailingContainer({super.key});
+  final String firstContainerRouteName;
+  final String textFirstContainer;
+  final String iconFirstContainer;
+  final String secondContainerRouteName;
+  final String textSecondContainer;
+  final String iconSecondContainer;
+  final Color textColor;
+
+  const PlateTrailingContainer(
+      {super.key,
+      required this.firstContainerRouteName,
+      required this.textFirstContainer,
+      required this.iconFirstContainer,
+      required this.textSecondContainer,
+      required this.iconSecondContainer,
+      required this.secondContainerRouteName,
+      required this.textColor});
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +29,10 @@ class PlateTrailingContainer extends StatelessWidget {
         Expanded(
           child: GestureDetector(
             onTap: () {
-              Navigator.pushNamed(context, MyPurchases.id);
+              Navigator.pushNamed(context, firstContainerRouteName);
             },
             child: Container(
-              height: 110,
+              height: 95,
               decoration: BoxDecoration(
                 border: Border.all(color: const Color(0XFF616161)),
                 borderRadius: const BorderRadius.only(
@@ -30,14 +44,14 @@ class PlateTrailingContainer extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "مشترياتي",
+                    textFirstContainer,
                     style: theme().textTheme.titleSmall!.copyWith(
                       fontSize: 18,
-                      color: primaryColor,
-                    ),
+                          color: textColor,
+                        ),
                   ),
                   const SizedBox(width: 8),
-                  SvgPicture.asset("assets/icons/cart_icon.svg"),
+                  SvgPicture.asset(iconFirstContainer),
                 ],
               ),
             ),
@@ -46,10 +60,10 @@ class PlateTrailingContainer extends StatelessWidget {
         Expanded(
           child: GestureDetector(
             onTap: () {
-              Navigator.pushNamed(context, ShoppingCart.id);
+              Navigator.pushNamed(context, secondContainerRouteName);
             },
             child: Container(
-              height: 110,
+              height: 95,
               decoration: BoxDecoration(
                 border: Border.all(color: const Color(0XFF616161)),
                 borderRadius: const BorderRadius.only(
@@ -61,14 +75,14 @@ class PlateTrailingContainer extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "عربة مشتريات",
+                    textSecondContainer,
                     style: theme().textTheme.titleSmall!.copyWith(
                       fontSize: 18,
-                      color: primaryColor,
-                    ),
+                          color: textColor,
+                        ),
                   ),
                   const SizedBox(width: 8),
-                  SvgPicture.asset("assets/icons/shop_car.svg"),
+                  SvgPicture.asset(iconSecondContainer),
                 ],
               ),
             ),

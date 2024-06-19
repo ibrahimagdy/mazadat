@@ -3,6 +3,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mazadat/constants.dart';
 import 'package:mazadat/core/utils/theme.dart';
 import 'package:mazadat/core/widgets/custom_search_bar.dart';
+import 'package:mazadat/view/plate_details/plate_grid_screen.dart';
+import 'package:mazadat/view/plate_details/shopping_cart/my_purchases.dart';
+import 'package:mazadat/view/plate_details/shopping_cart/shopping_cart.dart';
+
 import '../../core/widgets/drop_down_bar.dart';
 import '../../core/widgets/plate_header_list_tile.dart';
 import '../../core/widgets/plate_trailing_container.dart';
@@ -46,7 +50,9 @@ class DetailsPlateScreenState extends State<DetailsPlateScreen> {
           const SizedBox(width: 12),
           GestureDetector(
             onTap: toggleSearchVisibility,
-            child: const Icon(Icons.search, size: 24),
+            child: isSearchVisible
+                ? const Icon(Icons.search_off)
+                : const Icon(Icons.search),
           ),
           const SizedBox(width: 12),
         ],
@@ -59,9 +65,11 @@ class DetailsPlateScreenState extends State<DetailsPlateScreen> {
               color: isSearchVisible ? const Color(0XFFBF7E9A) : whiteBackGround,
               child: Column(
                 children: [
-                  const DropDownBar(),
+                  DropDownBar(targetScreenId: PlateGridScreen.id),
                   isSearchVisible
-                      ? const CustomSearchBar()
+                      ? const CustomSearchBar(
+                          hintText: 'بحث برقم اللوحة',
+                        )
                       : const PlateHeaderListTile(),
                 ],
               ),
@@ -116,9 +124,9 @@ class DetailsPlateScreenState extends State<DetailsPlateScreen> {
               child: Container(
                 color: const Color(0XFFD9D9D9),
                 child: ListView.builder(
-                  itemCount: args.plates.length,
+                  itemCount: args.plates?.length,
                   itemBuilder: (BuildContext context, int index) {
-                    final plate = args.plates[index];
+                    final plate = args.plates?[index];
                     return Column(
                       children: [
                         const SizedBox(height: 2),
@@ -128,7 +136,7 @@ class DetailsPlateScreenState extends State<DetailsPlateScreen> {
                             contentPadding: const EdgeInsets.symmetric(horizontal: 3),
                             title: Row(
                               children: [
-                                SvgPicture.asset(plate.imagePath),
+                                SvgPicture.asset(plate!.imagePath),
                                 const SizedBox(width: 8),
                                 Text(
                                   plate.price,
@@ -151,7 +159,15 @@ class DetailsPlateScreenState extends State<DetailsPlateScreen> {
                 ),
               ),
             ),
-            const PlateTrailingContainer(),
+            PlateTrailingContainer(
+              firstContainerRouteName: MyPurchases.id,
+              textFirstContainer: 'مشترياتي',
+              iconFirstContainer: 'assets/icons/cart_icon.svg',
+              secondContainerRouteName: ShoppingCart.id,
+              textSecondContainer: 'عربة مشتريات',
+              iconSecondContainer: 'assets/icons/shop_car.svg',
+              textColor: primaryColor,
+            ),
           ],
         ),
       ),
