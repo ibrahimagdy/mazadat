@@ -1,4 +1,7 @@
-import 'package:mazadat/view/details_screen/details_plate_screen.dart';
+import 'package:mazadat/models/various_categories_model.dart';
+import 'package:mazadat/view/plate_details/details_plate_screen.dart';
+import 'package:mazadat/view/various_categories_details/details_various_categories_screen.dart';
+
 import 'models/home_model.dart';
 import 'models/plate_model.dart';
 
@@ -119,15 +122,15 @@ final List<HomeModel> homeModels = [
     imagePath: "assets/images/Various_categories.png",
     title: "بضائع متنوعة",
     subtitle: "3ي:39د",
-    screen: DetailsPlateScreen.id,
-    plates: List.generate(
+    screen: DetailsVariousCategoriesScreen.id,
+    variousCategories: List.generate(
       15,
-          (index) => PlateData(
-        imagePath: "assets/images/shargah_tile.svg",
-        price: "68,000 درهم",
-        carIconPath: "assets/icons/car_plate_icon.svg",
-        shareIconPath: "assets/icons/share_plate_icon.svg",
-        shopIconPath: "assets/icons/shop_plate_icon.svg",
+      (index) => VariousCategoriesModel(
+        name: "هواتف متحركة",
+        modelNumber: "تسلل #409650",
+        iconNumber: " :4",
+        price: "550 درهم",
+        time: "30د:27ث",
       ),
     ),
   ),
@@ -150,15 +153,15 @@ final List<HomeModel> homeModels = [
     imagePath: "assets/images/real_estate_uae_mazad.png",
     title: "مزادات الامارات العقاري",
     subtitle: "3ي:39د",
-    screen: DetailsPlateScreen.id,
-    plates: List.generate(
+    screen: DetailsVariousCategoriesScreen.id,
+    variousCategories: List.generate(
       15,
-          (index) => PlateData(
-        imagePath: "assets/images/shargah_tile.svg",
-        price: "68,000 درهم",
-        carIconPath: "assets/icons/car_plate_icon.svg",
-        shareIconPath: "assets/icons/share_plate_icon.svg",
-        shopIconPath: "assets/icons/shop_plate_icon.svg",
+      (index) => VariousCategoriesModel(
+        name: "هواتف متحركة",
+        modelNumber: "تسلل #409650",
+        iconNumber: " :4",
+        price: "550 درهم",
+        time: "30د:27ث",
       ),
     ),
   ),
@@ -182,15 +185,15 @@ final List<HomeModel> homeModels = [
     imagePath: "assets/images/Various_categories_2.png",
     title: "بضائع متنوعة",
     subtitle: "3ي:39د",
-    screen: DetailsPlateScreen.id,
-    plates: List.generate(
+    screen: DetailsVariousCategoriesScreen.id,
+    variousCategories: List.generate(
       15,
-          (index) => PlateData(
-        imagePath: "assets/images/shargah_tile.svg",
-        price: "68,000 درهم",
-        carIconPath: "assets/icons/car_plate_icon.svg",
-        shareIconPath: "assets/icons/share_plate_icon.svg",
-        shopIconPath: "assets/icons/shop_plate_icon.svg",
+      (index) => VariousCategoriesModel(
+        name: "هواتف متحركة",
+        modelNumber: "تسلل #409650",
+        iconNumber: " :4",
+        price: "550 درهم",
+        time: "30د:27ث",
       ),
     ),
   ),
