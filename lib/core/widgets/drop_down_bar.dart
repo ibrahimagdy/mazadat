@@ -3,10 +3,11 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../constants.dart';
 import '../../models/home_model.dart';
-import '../../view/details_screen/plate_grid_screen.dart';
 
 class DropDownBar extends StatefulWidget {
-  const DropDownBar({super.key});
+  final String targetScreenId;
+
+  const DropDownBar({super.key, required this.targetScreenId});
 
   @override
   State<DropDownBar> createState() => _DropDownBarState();
@@ -62,7 +63,8 @@ class _DropDownBarState extends State<DropDownBar> {
                     padding: const EdgeInsets.symmetric(horizontal: 8),
                     child: GestureDetector(
                       onTap: (){
-                        Navigator.pushNamed(context, PlateGridScreen.id, arguments: args);
+                        Navigator.pushNamed(context, widget.targetScreenId,
+                            arguments: args);
                       },
                       child: SvgPicture.asset(
                         'assets/icons/details_icon.svg',

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import '../../constants.dart';
 
 class CustomSearchBar extends StatelessWidget{
-  const CustomSearchBar({super.key});
+  final String hintText;
+
+  const CustomSearchBar({super.key, required this.hintText});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +23,7 @@ class CustomSearchBar extends StatelessWidget{
         decoration: InputDecoration(
           filled: true,
           fillColor: whiteBackGround,
-          hintText: 'بحث برقم اللوحة',
+          hintText: hintText,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
           ),
