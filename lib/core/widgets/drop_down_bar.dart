@@ -5,9 +5,9 @@ import '../../constants.dart';
 import '../../models/home_model.dart';
 
 class DropDownBar extends StatefulWidget {
-  final String targetScreenId;
+  final String? targetScreenId;
 
-  const DropDownBar({super.key, required this.targetScreenId});
+  const DropDownBar({super.key, this.targetScreenId});
 
   @override
   State<DropDownBar> createState() => _DropDownBarState();
@@ -63,8 +63,13 @@ class _DropDownBarState extends State<DropDownBar> {
                     padding: const EdgeInsets.symmetric(horizontal: 8),
                     child: GestureDetector(
                       onTap: (){
-                        Navigator.pushNamed(context, widget.targetScreenId,
-                            arguments: args);
+                        if (widget.targetScreenId != null) {
+                          Navigator.pushNamed(
+                            context,
+                            widget.targetScreenId!,
+                            arguments: args,
+                          );
+                        }
                       },
                       child: SvgPicture.asset(
                         'assets/icons/details_icon.svg',

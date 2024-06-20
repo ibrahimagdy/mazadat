@@ -57,7 +57,7 @@ class _DetailsCarScreenState extends State<DetailsCarScreen> {
           children: [
             Container(
               color:
-                  isSearchVisible ? const Color(0XFFBF7E9A) : whiteBackGround,
+                  isSearchVisible ? const Color(0XFFF2EAEE) : whiteBackGround,
               child: Column(
                 children: [
                   DropDownBar(targetScreenId: CarGridView.id),
