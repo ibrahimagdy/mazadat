@@ -84,13 +84,12 @@ class _DetailsVariousCategoriesScreenState
                           borderRadius: BorderRadius.circular(5)),
                       color: whiteBackGround,
                       child: ListTile(
-                        leading:
-                            Image.asset("assets/images/phone_list_tile.png"),
+                        leading: Image.asset(variousCategories!.image),
                         title: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              variousCategories!.name,
+                              variousCategories.name,
                               style: theme().textTheme.titleMedium!.copyWith(
                                   color: primaryColor,
                                   fontWeight: FontWeight.bold),
