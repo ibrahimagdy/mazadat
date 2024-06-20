@@ -1,4 +1,5 @@
 import 'package:mazadat/models/plate_model.dart';
+import 'package:mazadat/models/rent_shops_model.dart';
 import 'package:mazadat/models/various_categories_model.dart';
 
 import 'car_model.dart';
@@ -11,6 +12,7 @@ class HomeModel {
   final List<PlateData>? plates;
   final List<VariousCategoriesModel>? variousCategories;
   final List<CarModel>? cars;
+  final List<RentShopsModel>? rentShops;
 
   HomeModel({
     required this.imagePath,
@@ -20,5 +22,6 @@ class HomeModel {
     this.plates,
     this.variousCategories,
     this.cars,
+    this.rentShops,
   });
 }

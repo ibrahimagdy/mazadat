@@ -103,7 +103,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     "Once again you login successfully into medidoc app",
                     "Go to home", () {
                   Navigator.pushNamed(context, HomeLayout.id);
-                });
+                  },
+                  imagePath: "assets/icons/success.svg",
+                );
               },
             ),
             SizedBox(height: mediaQuery.height * 0.02),

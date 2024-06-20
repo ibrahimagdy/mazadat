@@ -36,7 +36,7 @@ class HomeLayoutState extends State<HomeLayout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(),
+      appBar: selectedIndex == 0 ? const CustomAppBar() : null,
       drawer: const CustomDrawer(),
       body: _screens[selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
