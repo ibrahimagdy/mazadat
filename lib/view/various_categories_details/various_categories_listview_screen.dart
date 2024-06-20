@@ -99,13 +99,13 @@ class _VariousCategoriesListviewScreenState
                         children: [
                           Stack(
                             children: [
-                              Image.asset("assets/images/phone_list_view.png"),
+                              Image.asset(variousCategories!.listviewImage),
                               Positioned(
                                 right: 0,
                                 child: Padding(
                                   padding:
                                       const EdgeInsets.symmetric(horizontal: 8),
-                                  child: Text(variousCategories!.modelNumber),
+                                  child: Text(variousCategories.modelNumber),
                                 ),
                               ),
                             ],
