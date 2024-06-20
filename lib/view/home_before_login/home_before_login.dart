@@ -6,13 +6,28 @@ import 'package:mazadat/core/widgets/home_list_tile.dart';
 import 'package:mazadat/core/widgets/main_button.dart';
 import 'package:mazadat/view/auth/login_screen.dart';
 import 'package:mazadat/view/auth/sign_up_screen.dart';
+
 import '../../constants.dart';
+import '../../core/functions/show_dialog.dart';
 import '../home_layout/home_categories.dart';
 
 class HomeBeforeLogin extends StatelessWidget {
   static String id = "HomeBeforeLogin";
 
   const HomeBeforeLogin({super.key});
+
+  void _navigateToLogin(BuildContext context, int index) {
+    showConfirmationDialog(
+      context,
+      'Login Required',
+      'You need to login to access this feature. Do you want to login now?',
+      'Login',
+      () {
+        Navigator.of(context).pop();
+        Navigator.pushNamed(context, LoginScreen.id);
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +37,7 @@ class HomeBeforeLogin extends StatelessWidget {
       body: Column(
         children: [
           const HomeListTile(),
-          const HomeCategories(),
+          HomeCategories(onCategoryTap: _navigateToLogin),
           Container(
             height: 120,
             color: Colors.white,
@@ -30,25 +45,27 @@ class HomeBeforeLogin extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 MainButton(
-                    color: primaryColor,
-                    text: "تسحيل الدخول",
-                    textStyle: theme()
-                        .textTheme
-                        .titleSmall!
-                        .copyWith(color: Colors.white),
-                    icon: "assets/icons/login_vector.svg",
-                    onTap: () {
-                      Navigator.pushNamed(context, LoginScreen.id);
-                    }),
+                  color: primaryColor,
+                  text: "تسحيل الدخول",
+                  textStyle: theme()
+                      .textTheme
+                      .titleSmall!
+                      .copyWith(color: Colors.white),
+                  icon: "assets/icons/login_vector.svg",
+                  onTap: () {
+                    Navigator.pushNamed(context, LoginScreen.id);
+                  },
+                ),
                 MainButton(
-                    color: grey,
-                    text: "اشتراك",
-                    textStyle: theme().textTheme.titleSmall,
-                    textColor: Colors.black,
-                    icon: "assets/icons/subscribe.svg",
-                    onTap: () {
-                      Navigator.pushNamed(context, SignUpScreen.id);
-                    }),
+                  color: grey,
+                  text: "اشتراك",
+                  textStyle: theme().textTheme.titleSmall,
+                  textColor: Colors.black,
+                  icon: "assets/icons/subscribe.svg",
+                  onTap: () {
+                    Navigator.pushNamed(context, SignUpScreen.id);
+                  },
+                ),
               ],
             ),
           ),

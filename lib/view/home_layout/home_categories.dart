@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mazadat/view/home_layout/home_card.dart';
+
 import '../../data_model.dart';
 
 class HomeCategories extends StatelessWidget {
-  const HomeCategories({super.key});
+  final Function(BuildContext, int) onCategoryTap;
+
+  const HomeCategories({super.key, required this.onCategoryTap});
 
   @override
   Widget build(BuildContext context) {
@@ -29,13 +32,7 @@ class HomeCategories extends StatelessWidget {
               itemCount: homeModels.length,
               itemBuilder: (BuildContext context, int index) {
                 return GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(
-                      context,
-                      homeModels[index].screen,
-                      arguments: homeModels[index],
-                    );
-                  },
+                  onTap: () => onCategoryTap(context, index),
                   child: HomeCard(
                     image: homeModels[index].imagePath,
                     title: homeModels[index].title,

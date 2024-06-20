@@ -9,6 +9,7 @@ import 'package:mazadat/view/plate_details/details_plate_screen.dart';
 import 'package:mazadat/view/plate_details/plate_grid_screen.dart';
 import 'package:mazadat/view/plate_details/shopping_cart/my_purchases.dart';
 import 'package:mazadat/view/plate_details/shopping_cart/shopping_cart.dart';
+import 'package:mazadat/view/rent_shops_details/rents_shops_view.dart';
 import 'package:mazadat/view/splash_screen/skip_screen.dart';
 import 'package:mazadat/view/splash_screen/splash_screen.dart';
 import 'package:mazadat/view/various_categories_details/details_various_categories_screen.dart';
@@ -38,4 +39,5 @@ Map<String, Widget Function(BuildContext)> routes = {
   DetailsCarScreen.id: (context) => const DetailsCarScreen(),
   CarGridView.id: (context) => const CarGridView(),
   AllDetailsForCar.id: (context) => const AllDetailsForCar(),
+  RentsShopsView.id: (context) => const RentsShopsView(),
 };

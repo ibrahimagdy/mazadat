@@ -157,7 +157,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     "Your account has been successfully registered",
                     "Login", () {
                   Navigator.pushNamed(context, LoginScreen.id);
-                });
+                  },
+                  imagePath: "assets/icons/success.svg",
+                );
               },
             ),
             SizedBox(height: mediaQuery.height * 0.02),

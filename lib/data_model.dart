@@ -1,7 +1,9 @@
 import 'package:mazadat/models/car_model.dart';
+import 'package:mazadat/models/rent_shops_model.dart';
 import 'package:mazadat/models/various_categories_model.dart';
 import 'package:mazadat/view/car_details/details_car_screen.dart';
 import 'package:mazadat/view/plate_details/details_plate_screen.dart';
+import 'package:mazadat/view/rent_shops_details/rents_shops_view.dart';
 import 'package:mazadat/view/various_categories_details/details_various_categories_screen.dart';
 
 import 'models/home_model.dart';
@@ -250,16 +252,15 @@ final List<HomeModel> homeModels = [
     imagePath: "assets/images/rents_shops.png",
     title: "محلات للايجار",
     subtitle: "3ي:39د",
-    screen: DetailsPlateScreen.id,
-    plates: List.generate(
+    screen: RentsShopsView.id,
+    rentShops: List.generate(
       15,
-      (index) => PlateData(
-        imagePath: "assets/images/shargah_tile.svg",
-        price: "68,000 درهم",
-        carIconPath: "assets/icons/car_plate_icon.svg",
-        shareIconPath: "assets/icons/share_plate_icon.svg",
-        shopIconPath: "assets/icons/shop_plate_icon.svg",
-      ),
+      (index) => RentShopsModel(
+          image: "assets/images/rent_shop_img.png",
+          name: "هيئة الطرق والمواصلات",
+          displayFrom: "معروضة من قبل :",
+          time: "30د:27ث",
+          displayNumbers: "9"),
     ),
   ),
   HomeModel(
