@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mazadat/core/widgets/drop_down_bar.dart';
 import 'package:mazadat/core/widgets/plate_header_list_tile.dart';
+import 'package:mazadat/view/plate_details/details_plate_screen.dart';
 import 'package:mazadat/view/plate_details/shopping_cart/my_purchases.dart';
 import 'package:mazadat/view/plate_details/shopping_cart/shopping_cart.dart';
 
@@ -57,7 +58,7 @@ class _PlateGridScreenState extends State<PlateGridScreen> {
                   isSearchVisible ? const Color(0XFFBF7E9A) : whiteBackGround,
               child: Column(
                 children: [
-                  DropDownBar(targetScreenId: PlateGridScreen.id),
+                  DropDownBar(targetScreenId: DetailsPlateScreen.id),
                   isSearchVisible
                       ? const CustomSearchBar(
                           hintText: 'بحث برقم اللوحة',

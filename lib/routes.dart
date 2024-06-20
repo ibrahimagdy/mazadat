@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:mazadat/view/auth/sign_up_screen.dart';
+import 'package:mazadat/view/car_details/all_details_for_car.dart';
+import 'package:mazadat/view/car_details/car_grid_view.dart';
+import 'package:mazadat/view/car_details/details_car_screen.dart';
 import 'package:mazadat/view/home_before_login/home_before_login.dart';
 import 'package:mazadat/view/home_layout/home_layout.dart';
 import 'package:mazadat/view/plate_details/details_plate_screen.dart';
@@ -32,4 +35,7 @@ Map<String, Widget Function(BuildContext)> routes = {
       const VariousCategoriesListviewScreen(),
   MazadResult.id: (context) => const MazadResult(),
   FollowingMazad.id: (context) => const FollowingMazad(),
+  DetailsCarScreen.id: (context) => const DetailsCarScreen(),
+  CarGridView.id: (context) => const CarGridView(),
+  AllDetailsForCar.id: (context) => const AllDetailsForCar(),
 };
