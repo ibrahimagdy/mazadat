@@ -82,7 +82,7 @@ class _CarGridViewState extends State<CarGridView> {
                     crossAxisCount: 2,
                     mainAxisSpacing: 2,
                     crossAxisSpacing: 4,
-                    childAspectRatio: 0.75,
+                    childAspectRatio: 0.7,
                   ),
                   itemCount: args.cars?.length,
                   itemBuilder: (BuildContext context, int index) {
