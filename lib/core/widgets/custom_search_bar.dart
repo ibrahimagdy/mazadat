@@ -3,23 +3,26 @@ import 'package:flutter/services.dart';
 
 import '../../constants.dart';
 
-class CustomSearchBar extends StatelessWidget{
+class CustomSearchBar extends StatelessWidget {
   final String hintText;
+  final TextInputType keyboardType;
+  final List<TextInputFormatter> inputFormatters;
 
-  const CustomSearchBar({super.key, required this.hintText});
+  const CustomSearchBar({
+    super.key,
+    required this.hintText,
+    this.keyboardType = TextInputType.text,
+    this.inputFormatters = const [],
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       child: TextField(
-        keyboardType: TextInputType.number,
-        inputFormatters: <TextInputFormatter>[
-          FilteringTextInputFormatter.digitsOnly,
-        ],
-        style: const TextStyle(
-          color: Colors.black
-        ),
+        keyboardType: keyboardType,
+        inputFormatters: inputFormatters,
+        style: const TextStyle(color: Colors.black),
         decoration: InputDecoration(
           filled: true,
           fillColor: whiteBackGround,
@@ -31,5 +34,4 @@ class CustomSearchBar extends StatelessWidget{
       ),
     );
   }
-
 }
