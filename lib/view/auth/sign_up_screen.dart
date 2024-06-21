@@ -41,152 +41,155 @@ class _SignUpScreenState extends State<SignUpScreen> {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 40),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            SizedBox(height: mediaQuery.height * 0.02),
-            TextFormFieldCustom(
-              context: context,
-              controller: nameController,
-              hintText: "Enter your name",
-              prefixIcon: SvgPicture.asset(
-                "assets/icons/User-Outline.svg",
-                fit: BoxFit.scaleDown,
-              ),
-            ),
-            SizedBox(height: mediaQuery.height * 0.02),
-            TextFormFieldCustom(
-              context: context,
-              controller: emailController,
-              hintText: "Enter your email",
-              prefixIcon: SvgPicture.asset(
-                "assets/icons/email.svg",
-                fit: BoxFit.scaleDown,
-              ),
-            ),
-            SizedBox(height: mediaQuery.height * 0.02),
-            TextFormFieldCustom(
-              context: context,
-              controller: passwordController,
-              hintText: "Enter your password",
-              password: !isPasswordVisible,
-              suffixIcon: IconButton(
-                icon: Icon(
-                  isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SizedBox(height: mediaQuery.height * 0.02),
+              TextFormFieldCustom(
+                context: context,
+                controller: nameController,
+                hintText: "Enter your name",
+                prefixIcon: SvgPicture.asset(
+                  "assets/icons/User-Outline.svg",
+                  fit: BoxFit.scaleDown,
                 ),
-                onPressed: () {
-                  setState(() {
-                    isPasswordVisible = !isPasswordVisible;
-                  });
-                },
               ),
-              prefixIcon: SvgPicture.asset(
-                "assets/icons/password.svg",
-                fit: BoxFit.scaleDown,
+              SizedBox(height: mediaQuery.height * 0.02),
+              TextFormFieldCustom(
+                context: context,
+                controller: emailController,
+                hintText: "Enter your email",
+                prefixIcon: SvgPicture.asset(
+                  "assets/icons/email.svg",
+                  fit: BoxFit.scaleDown,
+                ),
               ),
-            ),
-            SizedBox(height: mediaQuery.height * 0.02),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    CustomCheckbox(
-                      isChecked: isChecked,
-                      onChanged: (value) {
-                        setState(() {
-                          isChecked = value!;
-                        });
-                      },
-                    ),
-                    SizedBox(width: mediaQuery.width * 0.02),
-                    Flexible(
-                      child: RichText(
-                        text: TextSpan(
-                          style: Theme.of(context).textTheme.bodyMedium,
-                          children: [
-                            const TextSpan(
-                              text: "I agree to the medidoc ",
-                              style: TextStyle(color: Color(0XFF3B4453)),
-                            ),
-                            TextSpan(
-                              onEnter: (event) {},
-                              text: "Terms of Service ",
-                              style: TextStyle(
-                                color: primaryColor,
-                                fontWeight: FontWeight.bold,
+              SizedBox(height: mediaQuery.height * 0.02),
+              TextFormFieldCustom(
+                context: context,
+                controller: passwordController,
+                hintText: "Enter your password",
+                password: !isPasswordVisible,
+                suffixIcon: IconButton(
+                  icon: Icon(
+                    isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      isPasswordVisible = !isPasswordVisible;
+                    });
+                  },
+                ),
+                prefixIcon: SvgPicture.asset(
+                  "assets/icons/password.svg",
+                  fit: BoxFit.scaleDown,
+                ),
+              ),
+              SizedBox(height: mediaQuery.height * 0.02),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      CustomCheckbox(
+                        isChecked: isChecked,
+                        onChanged: (value) {
+                          setState(() {
+                            isChecked = value!;
+                          });
+                        },
+                      ),
+                      SizedBox(width: mediaQuery.width * 0.02),
+                      Flexible(
+                        child: RichText(
+                          text: TextSpan(
+                            style: Theme.of(context).textTheme.bodyMedium,
+                            children: [
+                              const TextSpan(
+                                text: "I agree to the medidoc ",
+                                style: TextStyle(color: Color(0XFF3B4453)),
                               ),
-                            ),
-                            const TextSpan(
-                              text: "and ",
-                              style: TextStyle(color: Color(0XFF3B4453)),
-                            ),
-                            TextSpan(
-                              style: Theme.of(context).textTheme.bodyMedium,
-                              children: [
-                                TextSpan(
-                                  onEnter: (event) {},
-                                  text: "Privacy Policy",
-                                  style: TextStyle(
-                                    color: primaryColor,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                              TextSpan(
+                                onEnter: (event) {},
+                                text: "Terms of Service ",
+                                style: TextStyle(
+                                  color: primaryColor,
+                                  fontWeight: FontWeight.bold,
                                 ),
-                              ],
-                            ),
-                          ],
+                              ),
+                              const TextSpan(
+                                text: "and ",
+                                style: TextStyle(color: Color(0XFF3B4453)),
+                              ),
+                              TextSpan(
+                                style: Theme.of(context).textTheme.bodyMedium,
+                                children: [
+                                  TextSpan(
+                                    onEnter: (event) {},
+                                    text: "Privacy Policy",
+                                    style: TextStyle(
+                                      color: primaryColor,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            SizedBox(height: mediaQuery.height * 0.03),
-            MainButton(
-              color: primaryColor,
-              text: "Sign Up",
-              textStyle: theme()
-                  .textTheme
-                  .titleLarge!
-                  .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
-              onTap: () {
-                showConfirmationDialog(
-                    context,
-                    "Success",
-                    "Your account has been successfully registered",
-                    "Login", () {
-                  Navigator.pushNamed(context, LoginScreen.id);
-                  },
-                  imagePath: "assets/icons/success.svg",
-                );
-              },
-            ),
-            SizedBox(height: mediaQuery.height * 0.02),
-            RichText(
-              textAlign: TextAlign.center,
-              text: TextSpan(
-                children: [
-                  TextSpan(
-                    text: "have an account? ",
-                    style: theme().textTheme.bodyMedium!.copyWith(
-                          color: const Color(0xFF717784),
-                        ),
-                  ),
-                  TextSpan(
-                    text: "Login",
-                    style: theme().textTheme.bodyMedium!.copyWith(
-                          color: primaryColor,
-                        ),
-                    recognizer: TapGestureRecognizer()
-                      ..onTap = () {
-                        Navigator.pushNamed(context, LoginScreen.id);
-                      },
+                    ],
                   ),
                 ],
               ),
-            ),
-          ],
+              SizedBox(height: mediaQuery.height * 0.03),
+              MainButton(
+                color: primaryColor,
+                text: "Sign Up",
+                textStyle: theme()
+                    .textTheme
+                    .titleLarge!
+                    .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
+                onTap: () {
+                  showConfirmationDialog(
+                    context,
+                    "Success",
+                    "Your account has been successfully registered",
+                    "Login",
+                    () {
+                      Navigator.pushNamed(context, LoginScreen.id);
+                    },
+                    imagePath: "assets/icons/success.svg",
+                  );
+                },
+              ),
+              SizedBox(height: mediaQuery.height * 0.02),
+              RichText(
+                textAlign: TextAlign.center,
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: "have an account? ",
+                      style: theme().textTheme.bodyMedium!.copyWith(
+                            color: const Color(0xFF717784),
+                          ),
+                    ),
+                    TextSpan(
+                      text: "Login",
+                      style: theme().textTheme.bodyMedium!.copyWith(
+                            color: primaryColor,
+                          ),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          Navigator.pushNamed(context, LoginScreen.id);
+                        },
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
