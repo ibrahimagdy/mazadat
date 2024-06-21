@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mazadat/core/widgets/drop_down_bar.dart';
 import 'package:mazadat/core/widgets/plate_header_list_tile.dart';
@@ -60,8 +61,12 @@ class _PlateGridScreenState extends State<PlateGridScreen> {
                 children: [
                   DropDownBar(targetScreenId: DetailsPlateScreen.id),
                   isSearchVisible
-                      ? const CustomSearchBar(
+                      ? CustomSearchBar(
                           hintText: 'بحث برقم اللوحة',
+                          keyboardType: TextInputType.number,
+                          inputFormatters: <TextInputFormatter>[
+                            FilteringTextInputFormatter.digitsOnly,
+                          ],
                         )
                       : const PlateHeaderListTile(),
                 ],
@@ -90,7 +95,7 @@ class _PlateGridScreenState extends State<PlateGridScreen> {
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 4),
+                        padding: const EdgeInsets.symmetric(horizontal: 1),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -101,9 +106,10 @@ class _PlateGridScreenState extends State<PlateGridScreen> {
                               children: [
                                 Text(
                                   plate.price,
-                                  style: theme().textTheme.titleMedium!.copyWith(
-                                    color: primaryColor,
-                                    fontWeight: FontWeight.bold,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: theme().textTheme.titleSmall!.copyWith(
+                                        color: primaryColor,
                                   ),
                                 ),
                                 const SizedBox(width: 8),

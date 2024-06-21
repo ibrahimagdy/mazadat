@@ -45,6 +45,9 @@ class HomeCard extends StatelessWidget{
                 Text(
                     subTitle ?? "",
                     textDirection: TextDirection.rtl,
+                    textAlign: TextAlign.center,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                     style: theme().textTheme.titleMedium!.copyWith(
                         color: primaryColor
                     )
