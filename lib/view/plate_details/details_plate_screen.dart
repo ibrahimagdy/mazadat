@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mazadat/constants.dart';
 import 'package:mazadat/core/utils/theme.dart';
@@ -67,8 +68,12 @@ class DetailsPlateScreenState extends State<DetailsPlateScreen> {
                 children: [
                   DropDownBar(targetScreenId: PlateGridScreen.id),
                   isSearchVisible
-                      ? const CustomSearchBar(
+                      ? CustomSearchBar(
                           hintText: 'بحث برقم اللوحة',
+                          keyboardType: TextInputType.number,
+                          inputFormatters: <TextInputFormatter>[
+                            FilteringTextInputFormatter.digitsOnly,
+                          ],
                         )
                       : const PlateHeaderListTile(),
                 ],
