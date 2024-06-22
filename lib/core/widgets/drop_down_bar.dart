@@ -64,7 +64,7 @@ class _DropDownBarState extends State<DropDownBar> {
                     child: GestureDetector(
                       onTap: (){
                         if (widget.targetScreenId != null) {
-                          Navigator.pushNamed(
+                          Navigator.pushReplacementNamed(
                             context,
                             widget.targetScreenId!,
                             arguments: args,
