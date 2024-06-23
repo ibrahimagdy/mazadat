@@ -35,6 +35,7 @@ class _VariousCategoriesListviewScreenState
   Widget build(BuildContext context) {
     var args = ModalRoute.of(context)?.settings.arguments as HomeModel;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text(args.title),
         actions: [
